@@ -1,0 +1,129 @@
+/* =========================================================
+   FWU NOTES - GLOBAL STYLES
+   ---------------------------------------------------------
+   This file contains the foundational styles used throughout
+   the entire application.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. CSS RESET
+   ---------------------------------------------------------
+   Removes inconsistent browser defaults so that we have
+   predictable styling across different browsers.
+   --------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   2. ROOT DOCUMENT SETTINGS
+   ---------------------------------------------------------
+   Defines the base behavior of the HTML document.
+   --------------------------------------------------------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ---------------------------------------------------------
+   3. BODY
+   ---------------------------------------------------------
+   Defines the default typography, background and text color
+   for the entire website.
+   --------------------------------------------------------- */
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f8fdfe;
+    color: #17122a;
+
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ---------------------------------------------------------
+   4. LINKS
+   ---------------------------------------------------------
+   Removes the browser's default link appearance.
+   Individual components can add their own styling later.
+   --------------------------------------------------------- */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------
+   5. BUTTONS AND FORM ELEMENTS
+   ---------------------------------------------------------
+   Makes buttons inherit the application's typography.
+   --------------------------------------------------------- */
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* ---------------------------------------------------------
+   6. BUTTON RESET
+   ---------------------------------------------------------
+   Removes the browser's default button styling.
+   --------------------------------------------------------- */
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------
+   7. IMAGES
+   ---------------------------------------------------------
+   Prevents images from overflowing their containers.
+   --------------------------------------------------------- */
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   8. LIST RESET
+   ---------------------------------------------------------
+   Removes default bullets/numbers.
+   --------------------------------------------------------- */
+
+ul,
+ol {
+    list-style: none;
+}
+
+
+/* ---------------------------------------------------------
+   9. ROOT APPLICATION CONTAINER
+   ---------------------------------------------------------
+   Ensures the React application occupies the full viewport.
+   --------------------------------------------------------- */
+
+#root {
+    min-height: 100vh;
+}
