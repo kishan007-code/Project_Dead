@@ -12,7 +12,7 @@
    Removes inconsistent browser defaults so that we have
    predictable styling across different browsers.
    --------------------------------------------------------- */
-
+@import "./variables.css";
 * {
     margin: 0;
     padding: 0;
@@ -126,4 +126,48 @@ ol {
 
 #root {
     min-height: 100vh;
+}
+/* ---------------------------------------------------------
+   TYPOGRAPHY
+   ---------------------------------------------------------
+   Defines the default font families and text rendering used
+   throughout the application.
+   --------------------------------------------------------- */
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+    color: var(--color-text-primary);
+    background: var(--color-background);
+    line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   HEADINGS
+   ---------------------------------------------------------
+   Exo 2 provides the technical visual identity of the site.
+   --------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    line-height: 1.15;
+}
+
+
+/* ---------------------------------------------------------
+   BUTTONS AND NAVIGATION
+   ---------------------------------------------------------
+   UI elements use the heading font to maintain visual
+   consistency with the technical brand identity.
+   --------------------------------------------------------- */
+
+button,
+nav {
+    font-family: var(--font-heading);
 }

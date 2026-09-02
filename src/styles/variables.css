@@ -1,0 +1,159 @@
+/* =========================================================
+   FWU NOTES - DESIGN TOKENS
+   ---------------------------------------------------------
+   This file contains the visual variables used throughout
+   the entire application.
+
+   Components should use these variables instead of directly
+   hard-coding colors, spacing, shadows or other design values.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   LIGHT THEME
+   --------------------------------------------------------- */
+
+:root {
+
+    /* -----------------------------------------------------
+       BRAND COLORS
+       ----------------------------------------------------- */
+
+    --color-primary: #946ad0;
+    --color-primary-dark: #7b54b5;
+    --color-primary-light: #b69be3;
+
+    --color-secondary: #9ac3ee;
+    --color-secondary-dark: #6fa7df;
+    --color-secondary-light: #c9e0f7;
+
+    --color-accent: #7c2a55;
+
+
+    /* -----------------------------------------------------
+       BACKGROUND COLORS
+       ----------------------------------------------------- */
+
+    --color-background: #f8fdfe;
+    --color-surface: #ffffff;
+    --color-surface-soft: #f2edfa;
+    --color-surface-blue: #eef6fd;
+
+
+    /* -----------------------------------------------------
+       TEXT COLORS
+       ----------------------------------------------------- */
+
+    --color-text-primary: #17122a;
+    --color-text-secondary: #514b61;
+    --color-text-muted: #777184;
+    --color-text-on-primary: #ffffff;
+
+
+    /* -----------------------------------------------------
+       BORDER COLORS
+       ----------------------------------------------------- */
+
+    --color-border: rgba(23, 18, 42, 0.10);
+    --color-border-strong: rgba(23, 18, 42, 0.18);
+
+
+    /* -----------------------------------------------------
+       SEMANTIC COLORS
+       ----------------------------------------------------- */
+
+    --color-success: #3d9b6d;
+    --color-warning: #d99a32;
+    --color-danger: #c95757;
+    --color-info: #4c91c9;
+
+
+    /* -----------------------------------------------------
+       TYPOGRAPHY
+       ----------------------------------------------------- */
+
+    --font-heading: "Exo 2", sans-serif;
+    --font-body: "Alegreya Sans", sans-serif;
+    --font-display: "Six Caps", sans-serif;
+
+
+    /* -----------------------------------------------------
+       FONT SIZES
+       ----------------------------------------------------- */
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 3rem;
+    --font-size-4xl: 4rem;
+
+
+    /* -----------------------------------------------------
+       SPACING
+       ----------------------------------------------------- */
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 80px;
+    --space-10: 96px;
+
+
+    /* -----------------------------------------------------
+       BORDER RADIUS
+       ----------------------------------------------------- */
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --radius-pill: 999px;
+
+
+    /* -----------------------------------------------------
+       SHADOWS
+       ----------------------------------------------------- */
+
+    --shadow-sm:
+        0 2px 8px rgba(23, 18, 42, 0.06);
+
+    --shadow-md:
+        0 8px 24px rgba(23, 18, 42, 0.08);
+
+    --shadow-lg:
+        0 16px 48px rgba(23, 18, 42, 0.12);
+
+
+    /* -----------------------------------------------------
+       GLASS EFFECT
+       ----------------------------------------------------- */
+
+    --glass-background: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.55);
+    --glass-blur: 18px;
+
+
+    /* -----------------------------------------------------
+       TRANSITIONS
+       ----------------------------------------------------- */
+
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 400ms ease;
+
+
+    /* -----------------------------------------------------
+       LAYOUT
+       ----------------------------------------------------- */
+
+    --content-width: 1200px;
+    --content-padding: 24px;
+}
