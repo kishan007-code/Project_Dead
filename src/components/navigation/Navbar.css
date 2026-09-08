@@ -1,0 +1,397 @@
+/* =========================================================
+   FWU NOTES - NAVBAR
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   NAVBAR
+   --------------------------------------------------------- */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background: var(--glass-background);
+
+    border-bottom: 1px solid var(--color-border);
+
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+
+/* ---------------------------------------------------------
+   MAIN NAVBAR CONTAINER
+   --------------------------------------------------------- */
+
+.navbar__container {
+    width: 100%;
+    max-width: var(--content-width);
+
+    min-height: 68px;
+
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+
+    display: flex;
+    align-items: center;
+
+    gap: var(--space-4);
+    flex-wrap:nowrap;
+}
+
+
+/* ---------------------------------------------------------
+   BRAND
+   --------------------------------------------------------- */
+
+.navbar__brand {
+    display: inline-flex;
+    align-items: center;
+
+    gap: var(--space-2);
+
+    flex-shrink: 0;
+}
+
+
+.navbar__brand-mark {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: var(--radius-sm);
+
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
+
+    font-family: var(--font-heading);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+}
+
+
+.navbar__brand-name {
+    white-space: nowrap;
+
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP NAVIGATION
+   --------------------------------------------------------- */
+
+.navbar__links {
+    display: none;
+}
+
+
+/* ---------------------------------------------------------
+   NAVIGATION LINK
+   --------------------------------------------------------- */
+
+.navbar__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: var(--space-2) var(--space-3);
+
+    border-radius: var(--radius-sm);
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-heading);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+
+.navbar__link:hover {
+    color: var(--color-primary);
+
+    background: var(--color-surface-soft);
+}
+
+
+.navbar__arrow {
+    font-size: 0.9em;
+}
+
+
+/* ---------------------------------------------------------
+   ACTIONS
+   --------------------------------------------------------- */
+
+.navbar__actions {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    gap: var(--space-2);
+}
+
+
+/* ---------------------------------------------------------
+   ICON BUTTONS
+   --------------------------------------------------------- */
+
+.navbar__icon-button,
+.navbar__menu-button {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: var(--radius-sm);
+
+    color: var(--color-text-secondary);
+
+    transition:
+        color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+
+.navbar__icon-button:hover,
+.navbar__menu-button:hover {
+    color: var(--color-primary);
+
+    background: var(--color-surface-soft);
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE MENU BUTTON
+   --------------------------------------------------------- */
+
+.navbar__menu-button {
+    display: grid;
+
+    font-size: 1.25rem;
+}
+
+
+/* ---------------------------------------------------------
+   SEARCH PANEL
+   --------------------------------------------------------- */
+
+.navbar__search-panel {
+    width: 100%;
+
+    padding:
+        0
+        var(--content-padding)
+        var(--space-4);
+}
+
+
+.navbar__search {
+    width: 100%;
+    max-width: var(--content-width);
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: var(--space-2);
+
+    padding:
+        var(--space-2)
+        var(--space-3);
+
+    background: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+.navbar__search-icon {
+    flex-shrink: 0;
+}
+
+
+.navbar__search input {
+    width: 100%;
+    min-width: 0;
+
+    padding: var(--space-2) 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+}
+
+
+.navbar__search input::placeholder {
+    color: var(--color-text-muted);
+}
+
+
+.navbar__search-clear {
+    width: 32px;
+    height: 32px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: var(--radius-pill);
+
+    color: var(--color-text-muted);
+
+    font-size: 1.25rem;
+}
+
+
+.navbar__search-clear:hover {
+    color: var(--color-text-primary);
+
+    background: var(--color-surface-soft);
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE MENU
+   --------------------------------------------------------- */
+
+.navbar__mobile-menu {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding:
+        var(--space-2)
+        var(--content-padding)
+        var(--space-5);
+
+    border-top: 1px solid var(--color-border);
+
+    background: var(--color-surface);
+}
+
+
+.navbar__mobile-link {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: var(--space-4) 0;
+
+    border-bottom: 1px solid var(--color-border);
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-heading);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+
+    text-align: left;
+}
+
+
+.navbar__mobile-link:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+    /* ---------------------------------------------
+       Navbar height
+       --------------------------------------------- */
+
+    .navbar__container {
+        min-height: 76px;
+    }
+
+
+    /* ---------------------------------------------
+       Show desktop navigation
+       --------------------------------------------- */
+
+    .navbar__links {
+        display: flex;
+        align-items: center;
+
+        gap: var(--space-1);
+
+        margin-left: var(--space-5);
+    }
+
+
+    /* ---------------------------------------------
+       Hide hamburger
+       --------------------------------------------- */
+
+    .navbar__menu-button {
+        display: none;
+    }
+
+
+    /* ---------------------------------------------
+       Hide mobile menu
+       --------------------------------------------- */
+
+    .navbar__mobile-menu {
+        display: none;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,22 +1,27 @@
 /* =========================================================
    FWU NOTES - MAIN APPLICATION
-   ---------------------------------------------------------
-   App.jsx is the top-level React component.
-
-   Eventually this component will connect the major sections
-   of the website, routing, theme system and application-wide
-   layout.
    ========================================================= */
+
+import AppShell from "./components/layout/AppShell";
+
 
 function App() {
     return (
-        <div className="app">
-            <main>
+        <AppShell>
+
+            <section className="page-placeholder">
+
                 <h1>FWU Notes</h1>
-                <p>Engineering resources, all in one place.</p>
-            </main>
-        </div>
+
+                <p>
+                    Engineering resources, all in one place.
+                </p>
+
+            </section>
+
+        </AppShell>
     );
 }
+
 
 export default App;
