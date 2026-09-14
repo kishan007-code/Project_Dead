@@ -48,11 +48,11 @@ export function NoticeStrip({ onSelectNotice }) {
               className="notice-strip__link-btn"
               onClick={() => onSelectNotice(currentNotice.rawNotice)}
             >
-              View details →
+              Visit Notices Page
             </button>
           ) : (
-            <a href={currentNotice.href} className="notice-strip__link">
-              View details →
+            <a href="/notices" className="notice-strip__link">
+              Visit Notices Page
             </a>
           )}
         </div>

@@ -10,7 +10,6 @@ export function getRecentNotices(limit = 5) {
   return notices
     .slice(0, limit)
     .map((notice) => {
-      // Determine badge modifier fallback if type is missing
       let badgeType = notice.type;
       if (!badgeType) {
         badgeType = notice.isUrgent ? "urgent" : "update";
@@ -18,12 +17,11 @@ export function getRecentNotices(limit = 5) {
 
       return {
         id: notice.id,
-        rawNotice: notice, // Keeps complete reference for modal handling
+        rawNotice: notice,
         title: notice.title,
         badgeLabel: (notice.category || badgeType).toUpperCase(),
         badgeClass: `notice-strip__badge--${badgeType.toLowerCase()}`,
-        // Direct link to the notice ID section on the notices page
-        href: `/notices#${notice.id}`, 
+        href: "/notices", // Points directly to the main notices page
         date: notice.date
       };
     });
