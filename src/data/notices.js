@@ -11,12 +11,12 @@ const notices = [
     deadline: getRelativeDeadline("2026-09-15T09:00:00"), // Rendered only when present
     isUrgent: true,
     showAsPopup: true,
-    description: "Final deadline for Civil 6th Semester Irrigation Assignment 2. Make sure to submit hard copies at the department office.",
+    description: "Final deadline for Civil 6th Semester Irrigation Assignment 1.",
     image: "/assets/notices/irrigation-assign.png",
     downloadLink: "/assets/notices/irrigation-assignment-submission.png",
     // Custom Navigation target for specific semester/assignments:
-targetLink: "/semester/civil/4",
-    actionText: "Go to 4th Sem Assignment →"
+targetLink: "/semester/civil/6",
+    actionText: "Go to 6th Sem Assignment →"
   },
   {
     id: "notice-002",
