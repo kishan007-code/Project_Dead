@@ -1,0 +1,1095 @@
+/* =========================================================
+   FWU NOTES — UNIVERSAL FOOTER
+   ETERNAL SEA / HEART WAKE — V3
+   ========================================================= */
+
+.footer {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 620px;
+
+    overflow: hidden;
+
+    background: #070910;
+
+    color: #ffffff;
+
+    isolation: isolate;
+}
+
+/* =========================================================
+   LIQUID SURFACE CANVAS
+   ========================================================= */
+
+.footer__liquid-canvas {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    display: block;
+}
+
+/* =========================================================
+   IMPORTANT:
+   THE ANIMATION IS ALWAYS BEHIND THE REAL FOOTER CONTENT.
+   ========================================================= */
+
+.footer__sea,
+.footer__shimmer {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BACKGROUND SHIMMER
+   ========================================================= */
+
+.footer__shimmer {
+    z-index: 5;
+
+    --mx: 50%;
+    --my: 50%;
+    --speed: 0;
+
+    background:
+
+        /*
+         * Large distant soft light.
+         */
+        radial-gradient(
+            ellipse 430px 170px
+            at var(--mx) var(--my),
+
+            rgba(
+                255,
+                255,
+                255,
+                calc(
+                    0.018 +
+                    (var(--speed) * 0.018)
+                )
+            ),
+
+            transparent 2%
+        ),
+
+        /*
+         * Long horizontal water reflection.
+         */
+        linear-gradient(
+            150deg,
+
+            transparent 25%,
+
+            rgba(
+                255,
+                255,
+                255,
+                0.68
+            )20%,
+
+            transparent 24%,
+
+            transparent 43%,
+
+            rgba(239, 229, 229, 0.036) 48%,
+
+            transparent 53%,
+
+            transparent 71%,
+
+            rgba(
+                255,
+                255,
+                255,
+                0.016
+            ) 76%,
+
+            transparent 82%
+        );
+
+    opacity: 0.95;
+
+    transition:
+        background 250ms ease;
+}
+
+
+/* =========================================================
+   SUBTLE LIGHT STREAKS
+   ========================================================= */
+
+.footer__shimmer::before,
+.footer__shimmer::after {
+    content: "";
+
+    position: absolute;
+
+    left: -8%;
+
+    width: 116%;
+
+    pointer-events: none;
+
+    transform-origin: center;
+
+    filter: blur(0.5px);
+
+    opacity: 0.8;
+}
+
+
+.footer__shimmer::before {
+    top: 28%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            transparent 0%,
+
+            transparent 13%,
+
+            rgba(
+                255,
+                255,
+                255,
+                0.045
+            ) 21%,
+
+            rgba(
+                255,
+                255,
+                255,
+                0.012
+            ) 30%,
+
+            transparent 39%,
+
+            transparent 58%,
+
+            rgba(
+                255,
+                255,
+                255,
+                0.028
+            ) 66%,
+
+            transparent 77%,
+
+            transparent 100%
+        );
+
+    transform:
+        translateX(
+            calc(
+                (var(--mx) - 50vw) * 0.018
+            )
+        );
+}
+
+
+.footer__shimmer::after {
+    top: 64%;
+
+    height: 2px;
+
+    opacity: 0.45;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            transparent 4%,
+
+            rgba(
+                255,
+                255,
+                255,
+                0.018
+            ) 16%,
+
+            transparent 29%,
+
+            rgba(
+                255,
+                255,
+                255,
+                0.028
+            ) 52%,
+
+            transparent 65%,
+
+            rgba(
+                255,
+                255,
+                255,
+                0.016
+            ) 80%,
+
+            transparent 95%
+        );
+
+    transform:
+        translateX(
+            calc(
+                (var(--mx) - 50vw) * -0.012
+            )
+        );
+}
+
+
+/* =========================================================
+   SEA INTERACTION LAYER
+   ========================================================= */
+
+.footer__sea {
+    z-index: 20;
+}
+
+
+/* =========================================================
+   SVG
+   ========================================================= */
+
+.footer__wake {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   OUTER SLURRY
+   ========================================================= */
+
+.footer__wake-outer {
+    fill: none;
+
+    stroke:
+        rgba(
+            255,
+            255,
+            255,
+            0.07
+        );
+
+    stroke-width: 40px;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    filter:
+        blur(13px);
+
+    opacity: 0;
+
+    transition:
+        opacity 500ms ease;
+}
+
+
+/* =========================================================
+   MIDDLE SLURRY
+   ========================================================= */
+
+.footer__wake-middle {
+    fill: none;
+
+    stroke:
+        rgba(
+            255,
+            255,
+            255,
+            0.13
+        );
+
+    stroke-width: 15px;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    filter:
+        blur(5px);
+
+    opacity: 0;
+
+    transition:
+        opacity 350ms ease;
+}
+
+
+/* =========================================================
+   CORE
+   ========================================================= */
+
+.footer__wake-inner {
+    fill: none;
+
+    stroke:
+        rgba(
+            255,
+            255,
+            255,
+            0.24
+        );
+
+    stroke-width: 15px;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    filter:
+        blur(10px);
+
+    opacity: 0;
+
+    transition:
+        opacity 250ms ease;
+}
+
+
+/* =========================================================
+   SHOW INTERACTION
+   ========================================================= */
+
+.footer--active .footer__wake-outer {
+    opacity: 0.5;
+}
+
+.footer--active .footer__wake-middle {
+    opacity: 1;
+}
+
+.footer--active .footer__wake-inner {
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   HEART BOAT
+   ========================================================= */
+
+.footer__heart {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 28px;
+    height: 28px;
+
+    margin-left: -14px;
+    margin-top: -14px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    will-change: transform;
+
+    transition:
+        opacity 450ms ease;
+}
+
+
+.footer--active .footer__heart {
+    opacity: 1;
+}
+
+
+.footer__heart span {
+    display: block;
+
+    color: #ec46a1;
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    transform-origin: center;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(13, 10, 10, 0.75)
+        )
+        drop-shadow(
+            0 0 14px
+            rgba(
+                255,
+                255,
+                255,
+                0.22
+            )
+        );
+}
+
+
+/* =========================================================
+   REAL CONTENT
+   ========================================================= */
+
+.footer-container {
+    position: relative;
+
+    z-index: 4;
+
+    width:
+        min(
+            1400px,
+            calc(100% - 72px)
+        );
+
+    margin: 0 auto;
+
+    padding:
+        105px 0 80px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(550px, 1.15fr);
+
+    gap: 100px;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.footer-brand {
+    max-width: 520px;
+}
+
+
+.footer-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 24px;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    letter-spacing:
+        0.15em;
+}
+
+
+.footer-logo-mark {
+    font-size: 21px;
+
+    opacity: 0.9;
+}
+
+
+.footer-desc {
+    max-width: 510px;
+
+    margin: 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    font-size: 0.88rem;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.footer-status {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 28px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.36
+        );
+
+    font-family:
+        monospace;
+
+    font-size: 0.65rem;
+
+    letter-spacing:
+        0.04em;
+}
+
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    flex: 0 0 auto;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 10px
+        rgba(
+            255,
+            255,
+            255,
+            0.5
+        );
+}
+
+
+/* =========================================================
+   SOCIAL BUTTONS
+   ========================================================= */
+
+.footer-socials {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 30px;
+}
+
+
+.footer-socials a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 37px;
+    height: 37px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.09
+        );
+
+    border-radius: 9px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    font-size: 0.72rem;
+
+    text-decoration: none;
+
+    transition:
+        color 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease;
+}
+
+
+/*
+ * We deliberately DON'T make buttons fly toward the cursor.
+ * This keeps the interaction premium rather than intimidating.
+ */
+
+.footer-socials a:hover {
+    color: #ffffff;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-color:
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+}
+
+
+/* =========================================================
+   LINK GRID
+   ========================================================= */
+
+.footer-links-grid {
+    display: grid;
+
+    grid-template-columns:
+        0.9fr
+        1fr
+        1fr;
+
+    gap: 50px;
+}
+
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+
+.footer-column h4 {
+    margin:
+        0 0 22px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.35
+        );
+
+    font-family:
+        monospace;
+
+    font-size: 0.63rem;
+
+    letter-spacing:
+        0.15em;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   LINK INTERACTION
+   ========================================================= */
+
+.footer-column a {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    width: fit-content;
+
+    margin-bottom: 13px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.58
+        );
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+
+    text-decoration: none;
+
+    transition:
+        color 180ms ease;
+}
+
+
+/*
+ * Calm underline reveal instead of aggressive movement.
+ */
+
+.footer-column a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 100%;
+
+    bottom: -3px;
+
+    height: 1px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.6
+        );
+
+    transition:
+        right 220ms ease;
+}
+
+
+.footer-column a:hover {
+    color: #ffffff;
+}
+
+
+.footer-column a:hover::after {
+    right: 0;
+}
+
+
+/* =========================================================
+   SEMESTERS
+   ========================================================= */
+
+.semesters-subgrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    column-gap: 24px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   BOTTOM
+   ========================================================= */
+
+.footer-bottom {
+    position: relative;
+
+    z-index: 4;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.07
+        );
+}
+
+
+.footer-bottom-container {
+    width:
+        min(
+            1400px,
+            calc(100% - 72px)
+        );
+
+    min-height: 78px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.30
+        );
+
+    font-size: 0.64rem;
+
+    line-height: 1.6;
+}
+
+
+.footer-legal {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+}
+
+
+.footer-legal a {
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.34
+        );
+
+    font-size: 0.65rem;
+
+    text-decoration: none;
+
+    transition:
+        color 180ms ease;
+}
+
+
+.footer-legal a:hover {
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.85
+        );
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+
+    .footer-brand {
+        max-width: 680px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+    .footer {
+        min-height: auto;
+    }
+
+    /*
+     * Animation is already disabled by JS for touch devices,
+     * but this makes sure the visual layer remains completely
+     * harmless on small screens too.
+     */
+
+    .footer__sea {
+        display: none;
+    }
+
+    .footer-container {
+        width:
+            calc(100% - 36px);
+
+        padding:
+            72px 0 55px;
+
+        gap: 58px;
+    }
+
+    .footer-links-grid {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:
+            40px 28px;
+    }
+
+    .footer-column:last-child {
+        grid-column:
+            1 / -1;
+    }
+
+    .footer-bottom-container {
+        width:
+            calc(100% - 36px);
+
+        padding:
+            22px 0 28px;
+
+        align-items:
+            flex-start;
+
+        flex-direction: column;
+
+        gap: 17px;
+    }
+
+    .footer-legal {
+        justify-content:
+            flex-start;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .footer-container {
+        width:
+            calc(100% - 28px);
+
+        padding:
+            58px 0 48px;
+    }
+
+    .footer-desc {
+        font-size:
+            0.85rem;
+    }
+
+    .footer-status {
+        font-size:
+            0.58rem;
+
+        line-height:
+            1.7;
+    }
+
+    .footer-links-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .footer-column:last-child {
+        grid-column:
+            auto;
+    }
+
+    .semesters-subgrid {
+        max-width:
+            240px;
+    }
+
+    .footer-bottom-container {
+        width:
+            calc(100% - 28px);
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.footer a:focus-visible {
+    outline:
+        2px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+
+    outline-offset:
+        4px;
+
+    border-radius:
+        3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .footer__sea {
+        display: none;
+    }
+
+    .footer__shimmer {
+        background:
+            #070910;
+    }
+
+    .footer-socials a,
+    .footer-column a,
+    .footer-column a::after,
+    .footer-legal a {
+        transition: none;
+    }
+}

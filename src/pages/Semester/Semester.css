@@ -1,0 +1,744 @@
+/* =========================================================
+   FWU NOTES — SEMESTER PAGE
+   ========================================================= */
+
+.semester-page {
+    min-height: 100vh;
+    background: var(--color-background);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.semester-hero {
+    padding:
+        var(--space-10)
+        var(--content-padding)
+        var(--space-6);
+}
+
+.semester-hero__inner {
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.semester-hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    margin-bottom: var(--space-3);
+
+    color: var(--color-primary);
+
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.semester-hero__eyebrow span {
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background: var(--color-primary);
+}
+
+.semester-hero h1 {
+    max-width: 620px;
+
+    margin: 0;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+}
+
+.semester-hero h1 span {
+    display: inline;
+    color: var(--color-primary);
+}
+
+.semester-hero p {
+    max-width: 500px;
+
+    margin: var(--space-4) 0 0;
+
+    color: var(--color-text-secondary);
+
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.semester-layout {
+    width: min(
+        calc(100% - 48px),
+        var(--content-width)
+    );
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: var(--space-6);
+
+    padding-bottom: var(--space-12);
+}
+
+.semester-main {
+    min-width: 0;
+}
+
+/* =========================================================
+   FACULTY SELECTOR
+   ========================================================= */
+
+.faculty-selector {
+    display: flex;
+    gap: 6px;
+
+    margin-bottom: var(--space-4);
+    padding: 4px;
+
+    background: var(--color-surface-soft);
+    border: 1px solid rgba(148, 106, 208, 0.14);
+    border-radius: var(--radius-md);
+}
+
+.faculty-button {
+    position: relative;
+
+    flex: 1;
+    min-width: 0;
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 0 10px;
+
+    border: 0;
+    border-radius: var(--radius-sm);
+
+    background: transparent;
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-heading);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.faculty-button:hover {
+    color: var(--color-primary);
+}
+
+.faculty-button--active {
+    color: var(--color-primary);
+    background: var(--color-surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.faculty-button__code {
+    color: inherit;
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.faculty-button__ribbon {
+    position: absolute;
+    top: -8px;
+    right: 6px;
+    z-index: 2;
+
+    padding: 3px 6px;
+
+    color: white;
+    background: var(--color-accent);
+
+    border-radius: var(--radius-pill);
+
+    font-family: var(--font-heading);
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+/* =========================================================
+   FACULTY INTRO
+   ========================================================= */
+
+.faculty-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-surface),
+            var(--color-surface-blue)
+        );
+
+    border: 1px solid rgba(148, 106, 208, 0.16);
+    border-radius: var(--radius-md);
+}
+
+.faculty-intro__icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    color: white;
+    background: var(--color-primary);
+
+    border-radius: var(--radius-sm);
+}
+
+.faculty-intro__content {
+    min-width: 0;
+}
+
+.faculty-intro__label {
+    margin: 0 0 3px;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-heading);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.faculty-intro h2 {
+    margin: 0 0 4px;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.faculty-intro__content > p:last-child {
+    max-width: 600px;
+
+    margin: 0;
+
+    color: var(--color-text-secondary);
+
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.semester-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: var(--space-3);
+}
+
+.semester-section-heading span {
+    color: var(--color-primary);
+
+    font-family: var(--font-heading);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.semester-section-heading h2 {
+    margin: 3px 0 0;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    line-height: 1.1;
+}
+
+.semester-section-heading > p {
+    margin: 0;
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+}
+
+/* =========================================================
+   SEMESTER GRID
+   ========================================================= */
+
+.semester-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+}
+
+.semester-card {
+    position: relative;
+
+    min-height: 112px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+
+    padding: var(--space-3);
+
+    overflow: hidden;
+
+    background: var(--color-surface);
+    border: 1px solid rgba(148, 106, 208, 0.16);
+    border-radius: var(--radius-md);
+
+    text-decoration: none;
+
+    transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+/* No zoom or lift on hover */
+
+.semester-card:hover {
+    border-color: rgba(148, 106, 208, 0.5);
+    background: var(--color-surface-soft);
+    box-shadow: var(--shadow-sm);
+}
+
+.semester-card__number {
+    flex-shrink: 0;
+
+    color: var(--color-primary-light);
+
+    font-family: var(--font-display);
+    font-size: 3.1rem;
+    line-height: 0.82;
+}
+
+.semester-card__content {
+    min-width: 0;
+    padding-right: 18px;
+}
+
+.semester-card__content > span {
+    color: var(--color-primary);
+
+    font-family: var(--font-heading);
+    font-size: 0.57rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.semester-card h3 {
+    margin: 5px 0 8px;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    line-height: 1.15;
+}
+
+.semester-card p {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    margin: 0;
+
+    color: var(--color-text-muted);
+
+    font-size: 0.76rem;
+}
+
+.semester-card__arrow {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+    color: var(--color-primary);
+
+    transition: color var(--transition-fast);
+}
+
+.semester-card:hover .semester-card__arrow {
+    color: var(--color-accent);
+}
+
+/* =========================================================
+   AVAILABLE SEMESTERS — STRONGER EMPHASIS
+   ========================================================= */
+
+.semester-card:not(.semester-card--disabled) {
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-surface),
+            rgba(148, 106, 208, 0.08)
+        );
+
+    border-color: rgba(148, 106, 208, 0.35);
+}
+
+.semester-card:not(.semester-card--disabled)
+    .semester-card__number {
+    color: var(--color-primary);
+}
+
+.semester-card:not(.semester-card--disabled)
+    .semester-card__content > span {
+    color: var(--color-accent);
+}
+
+/* =========================================================
+   DISABLED SEMESTERS
+   ========================================================= */
+
+.semester-card--disabled {
+    opacity: 0.58;
+
+    cursor: default;
+
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            var(--color-surface),
+            var(--color-surface) 8px,
+            var(--color-surface-soft) 8px,
+            var(--color-surface-soft) 9px
+        );
+}
+
+.semester-card--disabled:hover {
+    border-color: rgba(148, 106, 208, 0.16);
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            var(--color-surface),
+            var(--color-surface) 8px,
+            var(--color-surface-soft) 8px,
+            var(--color-surface-soft) 9px
+        );
+    box-shadow: none;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.semester-sidebar {
+    align-self: start;
+    position: sticky;
+    top: 92px;
+
+    min-width: 0;
+
+    padding: var(--space-4);
+
+    background: var(--color-surface);
+    border: 1px solid rgba(148, 106, 208, 0.15);
+    border-radius: var(--radius-md);
+}
+
+.sidebar-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding-bottom: var(--space-3);
+
+    border-bottom: 1px solid rgba(148, 106, 208, 0.12);
+}
+
+.sidebar-heading span {
+    color: var(--color-primary);
+
+    font-family: var(--font-heading);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.sidebar-heading h2 {
+    margin: 4px 0 0;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+
+.sidebar-heading svg {
+    color: var(--color-primary);
+}
+
+/* =========================================================
+   HAPPENINGS
+   ========================================================= */
+
+.happenings-list {
+    padding-top: var(--space-1);
+}
+
+.happening {
+    display: flex;
+    gap: var(--space-2);
+
+    padding: var(--space-3) 0;
+}
+
+.happening__line {
+    position: relative;
+    width: 7px;
+    flex-shrink: 0;
+}
+
+.happening__line::after {
+    content: "";
+
+    position: absolute;
+    top: 7px;
+    left: 1px;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+    background: var(--color-primary);
+}
+
+.happening__content > span {
+    color: var(--color-text-muted);
+
+    font-family: var(--font-heading);
+    font-size: 0.57rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.happening h3 {
+    margin: 4px 0;
+
+    color: var(--color-text-primary);
+
+    font-family: var(--font-heading);
+    font-size: 0.86rem;
+    line-height: 1.25;
+}
+
+.happening p {
+    margin: 0;
+
+    color: var(--color-text-secondary);
+
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+/* =========================================================
+   ARCHIVE BOX
+   ========================================================= */
+
+.sidebar-archive {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    margin-top: var(--space-2);
+    padding-top: var(--space-3);
+
+    border-top: 1px solid rgba(148, 106, 208, 0.12);
+}
+
+.sidebar-archive svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+}
+
+.sidebar-archive strong,
+.sidebar-archive span {
+    display: block;
+}
+
+.sidebar-archive strong {
+    color: var(--color-text-primary);
+    font-size: 0.78rem;
+}
+
+.sidebar-archive span {
+    margin-top: 2px;
+
+    color: var(--color-text-muted);
+    font-size: 0.68rem;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .semester-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .semester-sidebar {
+        position: static;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+    .semester-hero {
+        padding:
+            var(--space-7)
+            var(--space-4)
+            var(--space-4);
+    }
+
+    .semester-hero h1 {
+        font-size: clamp(2.2rem, 12vw, 3.2rem);
+    }
+
+    .semester-hero p {
+        max-width: 340px;
+        font-size: 0.94rem;
+    }
+
+    .semester-layout {
+        width: calc(100% - 32px);
+        max-width: none;
+
+        display: block;
+    }
+
+    .faculty-selector {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .faculty-button {
+        flex: 0 0 auto;
+        min-width: 94px;
+    }
+
+    .faculty-button__ribbon {
+        right: 2px;
+        font-size: 6px;
+        top: 0px;
+    }
+
+    .faculty-intro {
+        gap: var(--space-2);
+        padding: var(--space-3);
+        margin-bottom: var(--space-5);
+    }
+
+    .faculty-intro__icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .faculty-intro h2 {
+        font-size: 1.12rem;
+    }
+
+    .faculty-intro__content > p:last-child {
+        font-size: 0.84rem;
+    }
+
+    .semester-section-heading h2 {
+        font-size: 1.3rem;
+    }
+
+    .semester-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+
+    .semester-card {
+        min-height: 94px;
+        padding: var(--space-3);
+    }
+
+    .semester-card__number {
+        font-size: 2.8rem;
+    }
+
+    .semester-card h3 {
+        font-size: 0.96rem;
+    }
+
+    .semester-sidebar {
+        margin-top: var(--space-6);
+    }
+}
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 360px) {
+    .semester-hero {
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
+
+    .semester-layout {
+        width: calc(100% - 24px);
+    }
+
+    .faculty-button {
+        min-width: 88px;
+        padding: 0 8px;
+        font-size: 0.78rem;
+    }
+
+    .faculty-button__ribbon {
+        display: none;
+    }
+}
