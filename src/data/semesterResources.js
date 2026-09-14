@@ -16,6 +16,16 @@ const semesterResources = {
                     subject: "Semester II Syllabus",
                     code: "SEM-II",
                 },
+                {
+                    id: "civil-2-overview-brief",
+                    title: "civil engineering Overview",
+                    file: "/documents/civil/semester2/overview.pdf",
+                    size: "1.2 MB",
+                    credit: "FWU Academic Curriculum",
+                    uploadedDate: "2026-09-13",
+                    subject: "Semester II Overview",
+                    code: "SEM-II",
+                }
             ],
 
             paperAnalysis: [
@@ -517,11 +527,26 @@ paperAnalysis: [
             subtitle:
                 "Syllabus, lecture notes, examination papers, assignments, laboratory reports, and academic resources.",
 
+                syllabus: [ 
+                    {
+                        id: "civil-6-syllabus",
+                        title: "Syllabus",
+                        file: "/documents/civil/semester6/syllabus/Syllabus_VI.pdf",
+                        size: "1.5 MB",
+                        credit: "FWU Academic Curriculum",
+                        uploadedDate: "2026-09-14",
+                        subject: "Civil Engineering - Semester VI",
+                        code: "",
+                    },
+                ],
+
+
+
 assignmentsTutorials: [
     {
         id: "civil-6-Irrigation-assignment-1",
         title: "Irrigation Engineering Assignment 1",
-        file: "/documents/civil/semester4/lab-reports/surveying-ii.pdf",
+        file: "/documents/civil/semester6/assignments/irrigation-assignment_dipak.pdf",
         size: "—",
         credit: "FWU Notes Archive",
         uploadedDate: "2026-09-13",
