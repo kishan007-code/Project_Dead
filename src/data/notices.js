@@ -7,8 +7,8 @@ const notices = [
     title: "Irrigation Engineering Assignment Submission",
     category: "Assignment",
     type: "urgent",
-    date: "2026-09-15",
-    deadline: getRelativeDeadline("2026-09-15T09:00:00"), // Rendered only when present
+    date: "2026-09-16",
+    deadline: getRelativeDeadline("2026-09-16T09:00:00"), // Rendered only when present
     isUrgent: true,
     showAsPopup: true,
     description: "Final deadline for Civil 6th Semester Irrigation Assignment 1.",
