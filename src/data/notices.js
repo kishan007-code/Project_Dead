@@ -10,7 +10,7 @@ const notices = [
     date: "2026-09-16",
     deadline: getRelativeDeadline("2026-09-16T09:00:00"), // Rendered only when present
     isUrgent: true,
-    showAsPopup: true,
+    showAsPopup: false,
     description: "Final deadline for Civil 6th Semester Irrigation Assignment 1.",
     image: "/assets/notices/irrigation-assign.png",
     downloadLink: "/assets/notices/irrigation-assignment-submission.png",
@@ -44,7 +44,24 @@ targetLink: "/semester/civil/6",
     description: "Mid-term internal assessment timetable for Computer and Civil Engineering 4th Semester.",
     image: "/assets/notices/4th-sem-exam.jpg",
     downloadLink: "/assets/notices/exam-routine-4th-sem.png"
-  }
+  },
+
+  {
+id: "notice-004",
+    title: "Civil 6th Semester Estimation Assignment 1 Submission",
+    category: "Assignment",
+    type: "urgent",
+    date: "2026-09-21",
+    deadline: getRelativeDeadline("2026-09-21T09:00:00"), // Rendered only when present
+    isUrgent: true,
+    showAsPopup: true,
+    description: "Make sure to submit your hard copies of the Civil 6th Semester Estimation Assignment 1 in the next class. Late submissions will not be accepted.",
+    image: "/assets/notices/estimation-assign.png",
+    downloadLink: "/assets/notices/estimation-assign.png",
+    // Custom Navigation target for specific semester/assignments:
+    targetLink: "/semester/civil/6",
+    actionText: "Go to 6th Sem Assignment →"
+  },
 ];
 
 
