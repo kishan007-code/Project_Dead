@@ -6,6 +6,8 @@ import { getRecentNotices } from "../../utils/getNotices";
 import NoticeStrip from "../../components/NoticeStrip"; // update path as needed
 import { useState, useEffect, useRef } from "react";
 import "./Home.css";
+import Kai7borgTexture from "../../components/Kai7borgTexture";
+
 import {
     ArrowLeftRight,
     Calculator,
@@ -194,14 +196,12 @@ function Home() {
        HERO MOUSE TRACKER
        --------------------------------------------------------- */
     const handlePointerMove = (event) => {
-        const hero = event.currentTarget;
-        const rect = hero.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        hero.style.setProperty("--mouse-x", `${x}px`);
-        hero.style.setProperty("--mouse-y", `${y}px`);
-    };
+    if (event.pointerType === "touch") return; // handled purely by CSS on touch
+    const hero = event.currentTarget;
+    const rect = hero.getBoundingClientRect();
+    hero.style.setProperty("--mouse-x", `${event.clientX - rect.left}px`);
+    hero.style.setProperty("--mouse-y", `${event.clientY - rect.top}px`);
+};
 
     /* ---------------------------------------------------------
        STATS INTERSECTION OBSERVER
@@ -242,30 +242,18 @@ function Home() {
 
     const activeNotice = dynamicNotices[noticeIndex] || null;
 
-    const getBadgeClass = (category) => {
-        switch (category?.toLowerCase()) {
-            case "urgent":
-            case "exam":
-                return "notice-strip__badge--urgent";
-            case "new":
-            case "resource":
-                return "notice-strip__badge--new";
-            case "update":
-            case "syllabus":
-                return "notice-strip__badge--update";
-            default:
-                return "notice-strip__badge--info";
-        }
-    };
+    const getBadgeClass = (notice) => {
+    const key = (notice.type || (notice.isUrgent ? "urgent" : "update") || "info").toLowerCase();
+    switch (key) {
+        case "urgent": return "notice-strip__badge--urgent";
+        case "new": return "notice-strip__badge--new";
+        case "update": return "notice-strip__badge--update";
+        default: return "notice-strip__badge--info";
+    }
+};
 
-    const getBadgeLabel = (item) => {
-        if (item.badge) return item.badge;
-        const cat = item.category || item.type || "NOTICE";
-        if (cat.toLowerCase() === "urgent") return "🔴 URGENT NOTICE";
-        if (cat.toLowerCase() === "new") return "🔵 NEW RESOURCE";
-        if (cat.toLowerCase() === "update") return "🟢 SYLLABUS UPDATE";
-        return `ℹ️ ${cat.toUpperCase()}`;
-    };
+const getBadgeLabel = (notice) => (notice.category || notice.type || "Notice").toUpperCase();
+   
 
     return (
         <main className="home">
@@ -273,7 +261,7 @@ function Home() {
                 1. HERO SECTION
                 ================================================= */}
             <section className="hero" onPointerMove={handlePointerMove}>
-                <div className="hero__halftone" aria-hidden="true" />
+                    <Kai7borgTexture />
 
                 <div className="hero__container">
                     <div className="hero__content">
@@ -385,30 +373,24 @@ function Home() {
                     </header>
 
                     <div className="directory__grid">
-                        {RESOURCE_TYPES.map((type) => (
-                            <a key={type.id} href={type.href} className="directory__card">
-                                <div className="directory__card-left">
-                                    <span className="directory__icon">{type.icon}</span>
-                                    <div className="directory__meta">
-                                        <h3 className="directory__name">{type.label}</h3>
-                                        <span className="directory__count">{type.count}</span>
-                                    </div>
-                                </div>
-                                <span className="directory__arrow">→</span>
-                            </a>
-                        ))}
-                    </div>
+    {RESOURCE_TYPES.map((type) => (
+        <div key={type.id} className="directory__card">
+            <span className="directory__icon">{type.icon}</span>
+            <h3 className="directory__name">{type.label}</h3>
+            <p className="directory__desc">{type.description}</p>
+        </div>
+    ))}
+</div>
                 </div>
             </section>
 
-            {/* =================================================
-                3. AUTOMATED DYNAMIC NOTICE STRIP
-                ================================================= */}
+           
            
           {/* =================================================
     3. AUTOMATED DYNAMIC NOTICE STRIP
     ================================================= */}
 <NoticeStrip onSelectNotice={setSelectedNotice} />
+
 
             {/* =================================================
                 4. CURRICULUM MATRIX
@@ -696,8 +678,7 @@ function Home() {
                             <X size={18} />
                         </button>
 
-                        <span className={`notice-strip__badge ${getBadgeClass(selectedNotice.category || selectedNotice.type)}`}>
-                            {getBadgeLabel(selectedNotice)}
+  <span className={`notice-strip__badge ${getBadgeClass(selectedNotice)}`}>                            {getBadgeLabel(selectedNotice)}
                         </span>
 
                         <h3 className="notice-modal__title">
@@ -712,25 +693,12 @@ function Home() {
                             {selectedNotice.description || selectedNotice.text}
                         </p>
 
-                        <div className="notice-modal__actions">
-                            {selectedNotice.file && (
-                                <a
-                                    href={selectedNotice.file}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="hero__button hero__button--primary"
-                                >
-                                    <FileText size={16} />
-                                    <span>Download Attachment</span>
-                                </a>
-                            )}
-                            <a
-                                href="/notices"
-                                className="hero__button hero__button--secondary"
-                            >
-                                <span>Go to Notices Page</span>
-                            </a>
-                        </div>
+                          <div className="notice-modal__actions">
+      
+      <a href={selectedNotice.targetLink || "/notices"} className="hero__button hero__button--secondary">
+          <span>{selectedNotice.actionText || "Go to Notices Page"}</span>
+      </a>
+  </div>
                     </div>
                 </div>
             )}

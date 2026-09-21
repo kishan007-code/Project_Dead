@@ -10,7 +10,7 @@ const notices = [
     date: "2026-09-16",
     deadline: getRelativeDeadline("2026-09-16T09:00:00"), // Rendered only when present
     isUrgent: true,
-    showAsPopup: false,
+    showAsPopup: true,
     description: "Final deadline for Civil 6th Semester Irrigation Assignment 1.",
     image: "/assets/notices/irrigation-assign.png",
     downloadLink: "/assets/notices/irrigation-assignment-submission.png",

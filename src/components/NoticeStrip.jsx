@@ -1,34 +1,39 @@
 // src/components/NoticeStrip.jsx
 import React, { useState, useEffect } from "react";
+import { X, ArrowRight } from "lucide-react";
 import { getRecentNotices } from "../utils/getNotices";
 
 export function NoticeStrip({ onSelectNotice }) {
   const [notices, setNotices] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    const data = getRecentNotices();
-    setNotices(data);
+    setNotices(getRecentNotices());
   }, []);
 
   useEffect(() => {
     if (notices.length <= 1) return;
-
     const interval = setInterval(() => {
       setIsFading(true);
       setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % notices.length);
+        setCurrentIndex((prev) => (prev + 1) % notices.length);
         setIsFading(false);
       }, 300);
     }, 5000);
-
     return () => clearInterval(interval);
   }, [notices]);
 
-  if (!notices.length) return null;
+  if (!notices.length || dismissed) return null;
 
   const currentNotice = notices[currentIndex];
+
+  const handleVisit = () => {
+    // fallback fixes the case where the data layer never attached `rawNotice`
+    const payload = currentNotice.rawNotice ?? currentNotice;
+    onSelectNotice?.(payload);
+  };
 
   return (
     <section className="notice-strip" aria-live="polite">
@@ -37,24 +42,29 @@ export function NoticeStrip({ onSelectNotice }) {
           <span className={`notice-strip__badge ${currentNotice.badgeClass}`}>
             {currentNotice.badgeLabel}
           </span>
-          
-          <p className="notice-strip__text">
-            {currentNotice.title}
-          </p>
 
-          {onSelectNotice ? (
+          <p className="notice-strip__text">{currentNotice.title}</p>
+
+          <div className="notice-strip__actions">
+            {onSelectNotice ? (
+              <button type="button" className="notice-strip__cta" onClick={handleVisit}>
+                View Notice <ArrowRight size={13} strokeWidth={2.5} />
+              </button>
+            ) : (
+              <a href="/notices" className="notice-strip__cta">
+                View Notice <ArrowRight size={13} strokeWidth={2.5} />
+              </a>
+            )}
+
             <button
               type="button"
-              className="notice-strip__link-btn"
-              onClick={() => onSelectNotice(currentNotice.rawNotice)}
+              className="notice-strip__dismiss"
+              onClick={() => setDismissed(true)}
+              aria-label="Dismiss notice"
             >
-              Visit Notices Page
+              <X size={14} strokeWidth={2.5} />
             </button>
-          ) : (
-            <a href="/notices" className="notice-strip__link">
-              Visit Notices Page
-            </a>
-          )}
+          </div>
         </div>
       </div>
     </section>
